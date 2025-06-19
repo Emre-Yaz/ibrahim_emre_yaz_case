@@ -1,0 +1,20 @@
+# Virtual Environment
+venv/
+
+# Cache
+__pycache__/
+.cache/
+
+# pytest cache
+.pytest_cache/
+
+# Logs and reports
+*.log
+*.html
+*.xml
+*.csv
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
