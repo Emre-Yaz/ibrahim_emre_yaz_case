@@ -1,11 +1,12 @@
 # Virtual Environment
 venv/
 
+# Vscode
+.vscode
+
 # Cache
 __pycache__/
 .cache/
-
-# pytest cache
 .pytest_cache/
 
 # Logs and reports

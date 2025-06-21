@@ -23,12 +23,12 @@ This project automates a UI flow on https://useinsider.com/ using Python and Sel
    - Career page URL
    - Presence of Locations, Teams, and Life at Insider sections
 3. Visit QA-specific job page and filter jobs by:
-   - Location: `Istanbul, Turkey`
+   - Location: `Istanbul, Turkiye`
    - Department: `Quality Assurance`
 4. Validate all job cards have correct:
    - Position → includes `Quality Assurance`
    - Department → `Quality Assurance`
-   - Location → `Istanbul, Turkey`
+   - Location → `Istanbul, Turkiye`
 5. Click `View Role` and confirm redirect to Lever application page
 
 ---
