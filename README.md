@@ -1,6 +1,6 @@
 # QA Engineer – Selenium Task
 
-This project automates a UI flow on https://useinsider.com/ using Python and Selenium. The goal is to showcase not only functional correctness, but also engineering practices.
+This project automates a UI flow on https://useinsider.com/ using Python and Selenium, following the Page Object Model (POM). It includes reliable UI interaction, filtering validations, Lever redirection testing, and Sphinx-based documentation generation. The goal is to showcase not only functional correctness, but also engineering practices.
 
 ---
 
@@ -10,26 +10,8 @@ This project automates a UI flow on https://useinsider.com/ using Python and Sel
 ✅ Robust CSS/XPath selectors  
 ✅ Clean assertions and error messages  
 ✅ Logging and screenshot capture on failure  
-✅ HTML test report
-
----
-
-## 🧪 Test Coverage
-
-### ✅ Steps Implemented
-
-1. Visit `https://useinsider.com/` and check homepage is loaded
-2. Navigate to Company → Careers and verify:
-   - Career page URL
-   - Presence of Locations, Teams, and Life at Insider sections
-3. Visit QA-specific job page and filter jobs by:
-   - Location: `Istanbul, Turkiye`
-   - Department: `Quality Assurance`
-4. Validate all job cards have correct:
-   - Position → includes `Quality Assurance`
-   - Department → `Quality Assurance`
-   - Location → `Istanbul, Turkiye`
-5. Click `View Role` and confirm redirect to Lever application page
+✅ Test report & Sphinx documentation
+✅ Tab switching and redirect assertio
 
 ---
 
@@ -67,6 +49,27 @@ pytest
 
 ```bash
 pytest --html=report.html --self-contained-html
+```
+
+### Running with different browsers and modes
+
+You can configure the browser and headless mode via command-line options:
+
+| Option              | Description                        |
+| ------------------- | ---------------------------------- |
+| `--browser=chrome`  | (default) Run in Chrome            |
+| `--browser=firefox` | Run in Firefox                     |
+| `--headless`        | Run without opening browser window |
+
+```bash
+# Run in headless Chrome
+pytest --headless
+
+# Run in Firefox (headed)
+pytest --browser=firefox
+
+# Run in headless Firefox with HTML report
+pytest --browser=firefox --headless --html=report.html --self-contained-html
 ```
 
 ## 📸 Extras

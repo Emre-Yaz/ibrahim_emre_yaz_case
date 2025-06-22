@@ -10,10 +10,7 @@ class HomePage(BasePage):
     # Locators
     COMPANY_MENU = (By.XPATH, '//a[normalize-space(text())="Company"]')
     CAREERS_LINK = (By.XPATH, '//a[text()="Careers"]')
-    HERO_INPUT = (
-        By.XPATH,
-        '//input[@type="email" and contains(@class, "one-line-email-input") and @name="hero-email-input"]'
-    )
+    HOMEPAGE_SPECIFIER = (By.ID, 'home_logo_reel')
 
     def __init__(self, driver):
         """
@@ -37,7 +34,7 @@ class HomePage(BasePage):
         return (
             "Insider" in self.get_title() and
             "useinsider.com" in self.driver.current_url and
-            self.is_displayed(self.HERO_INPUT)
+            self.is_displayed(self.HOMEPAGE_SPECIFIER)
         )
 
     def open_careers_page(self):

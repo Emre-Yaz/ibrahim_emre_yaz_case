@@ -36,10 +36,15 @@ Tests Package
    :show-inheritance:
 
 
-   Utils Package
+Utils Package
 =============
 
 .. automodule:: utils.driver_factory
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: utils.logger
    :members:
    :undoc-members:
    :show-inheritance:

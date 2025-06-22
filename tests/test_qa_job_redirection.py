@@ -1,6 +1,8 @@
 from pages.home_page import HomePage
 from pages.careers_page import CareersPage
 from pages.qa_jobs_page import QAJobsPage
+from utils.logger import get_logger
+logger = get_logger(__name__)
 
 
 def test_qa_job_redirection(driver):
@@ -9,6 +11,7 @@ def test_qa_job_redirection(driver):
     home.load()
     home.wait_for_page_load()
     assert home.is_homepage_open(), "Insider home page could not be opened."
+    logger.info("Homepage is open successfully")
 
     # Step 2: Navigate to Careers via Company menu
     home.open_careers_page()
@@ -16,6 +19,8 @@ def test_qa_job_redirection(driver):
     careers = CareersPage(driver)
     careers.wait_for_page_load()
     assert careers.is_career_page_open(), "Career page could not be opened."
+    logger.info("Career page is open successfully")
+
     assert careers.are_sections_visible(
     ), "Career page sections (Locations, Teams, Life at Insider) not visible"
 
@@ -24,6 +29,8 @@ def test_qa_job_redirection(driver):
     qa_jobs.load()
     qa_jobs.click_see_all_qa_jobs()
     qa_jobs.wait_for_page_load()
+    logger.info("QA jobs page is open successfully")
+
     qa_jobs.apply_filters(location="Istanbul, Turkiye",
                           department="Quality Assurance")
 
@@ -41,4 +48,5 @@ def test_qa_job_redirection(driver):
 
     # Switch to Lever tab
     driver.switch_to.window(driver.window_handles[-1])
+    logger.info("Switched to the new tab successfully")
     assert "lever.co" in driver.current_url, "Redirection to Lever application page was not successful"
