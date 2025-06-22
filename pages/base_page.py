@@ -63,22 +63,12 @@ class BasePage:
         """Click a visible element."""
         self.find(locator).click()
 
-    def type(self, locator, text):
-        """Clear and type text into an input field."""
-        elem = self.find(locator)
-        elem.clear()
-        elem.send_keys(text)
-
     def is_displayed(self, locator):
         """Return True if element is visible."""
         try:
             return self.find(locator).is_displayed()
         except (TimeoutException, NoSuchElementException):
             return False
-
-    def get_text(self, locator):
-        """Get the visible text of an element."""
-        return self.find(locator).text
 
     def hover_and_click(self, menu_locator, link_locator):
         """
@@ -91,9 +81,7 @@ class BasePage:
         menu = self.find(menu_locator)
 
         ActionChains(self.driver).move_to_element(menu).perform()
-
         self.wait_until_visible(link_locator)
-
         self.click(link_locator)
 
     def wait_until_visible(self, locator):

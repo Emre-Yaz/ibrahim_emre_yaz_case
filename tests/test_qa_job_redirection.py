@@ -8,14 +8,14 @@ def test_qa_job_redirection(driver):
     home = HomePage(driver)
     home.load()
     home.wait_for_page_load()
-    assert home.is_title_correct(), "Insider home page could not be opened."
+    assert home.is_homepage_open(), "Insider home page could not be opened."
 
     # Step 2: Navigate to Careers via Company menu
     home.open_careers_page()
 
     careers = CareersPage(driver)
     careers.wait_for_page_load()
-    assert careers.is_career_page_open(), "Career page URL is incorrect"
+    assert careers.is_career_page_open(), "Career page could not be opened."
     assert careers.are_sections_visible(
     ), "Career page sections (Locations, Teams, Life at Insider) not visible"
 
@@ -41,4 +41,4 @@ def test_qa_job_redirection(driver):
 
     # Switch to Lever tab
     driver.switch_to.window(driver.window_handles[-1])
-    assert "lever.co" in driver.current_url, "Redirection to Lever application page failed"
+    assert "lever.co" in driver.current_url, "Redirection to Lever application page was not successful"

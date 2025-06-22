@@ -104,18 +104,3 @@ class QAJobsPage(BasePage):
         self.driver.execute_script(
             "arguments[0].scrollIntoView({block: 'center'});", button)
         self.driver.execute_script("arguments[0].click();", button)
-
-    def wait_load(self):
-        """
-        Wait until the QA jobs page is fully loaded by confirming
-        that the 'Quality Assurance' filter is pre-selected.
-        """
-        selected_department_xpath = (
-            '//span[@id="select2-filter-by-department-container" and @title="Quality Assurance"]'
-        )
-
-        locator = (By.XPATH, selected_department_xpath)
-
-        WebDriverWait(self.driver, self.timeout).until(
-            EC.visibility_of_element_located(locator)
-        )

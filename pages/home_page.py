@@ -10,6 +10,10 @@ class HomePage(BasePage):
     # Locators
     COMPANY_MENU = (By.XPATH, '//a[normalize-space(text())="Company"]')
     CAREERS_LINK = (By.XPATH, '//a[text()="Careers"]')
+    HERO_INPUT = (
+        By.XPATH,
+        '//input[@type="email" and contains(@class, "one-line-email-input") and @name="hero-email-input"]'
+    )
 
     def __init__(self, driver):
         """
@@ -22,9 +26,19 @@ class HomePage(BasePage):
         """Open the Insider homepage."""
         self.go_to(self.url)
 
-    def is_title_correct(self):
-        """Check if the homepage title contains 'Insider'."""
-        return "Insider" in self.get_title()
+    def is_homepage_open(self):
+        """
+        Confirm the Insider homepage is loaded by checking:
+        - The page title contains 'Insider'
+        - The current URL includes useinsider.com
+        - The homepage hero email input is visible
+        """
+
+        return (
+            "Insider" in self.get_title() and
+            "useinsider.com" in self.driver.current_url and
+            self.is_displayed(self.HERO_INPUT)
+        )
 
     def open_careers_page(self):
         """
