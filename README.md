@@ -72,6 +72,23 @@ pytest --browser=firefox
 pytest --browser=firefox --headless --html=report.html --self-contained-html
 ```
 
+## 🧠 Sphinx Documentation
+
+### 🔧 Build HTML Docs
+
+```bash
+cd docs
+sphinx-build -M html . build
+```
+
+### 🌐 Open Docs
+
+Open this file in your browser:
+
+```bash
+docs/_build/html/index.html
+```
+
 ## 📸 Extras
 
 - Screenshots: On any test failure, a screenshot is saved in /screenshots with a timestamp.
