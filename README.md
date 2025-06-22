@@ -11,6 +11,7 @@ This project automates a UI flow on https://useinsider.com/ using Python and Sel
 ✅ Clean assertions and error messages  
 ✅ Logging and screenshot capture on failure  
 ✅ Test report & Sphinx documentation
+
 ✅ Tab switching and redirect assertion
 
 ---
